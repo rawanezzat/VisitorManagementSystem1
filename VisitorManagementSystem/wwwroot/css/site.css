@@ -1,0 +1,180 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
+  color: var(--bs-secondary-color);
+  text-align: end;
+}
+
+.form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
+  text-align: start;
+}
+
+
+/* ================================
+   MAIN NAVBAR
+================================ */
+
+.main-navbar {
+    width: 100%;
+    background: #ffffff;
+    border-bottom: 1px solid #e5e7eb;
+    box-shadow: 0 2px 10px rgba(18, 37, 107, 0.08);
+    position: relative;
+    z-index: 1000;
+}
+
+.navbar-container {
+    width: 100%;
+    min-height: 88px;
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+/* ================================
+   BRAND
+================================ */
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.hero-logo {
+    font-size: 44px;
+    font-weight: 800;
+    line-height: 1;
+    color: #00328c;
+    letter-spacing: -2px;
+}
+
+.brand-text {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.brand-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #12256b;
+}
+
+.brand-subtitle {
+    font-size: 13px;
+    color: #64748b;
+}
+
+
+/* ================================
+   LANGUAGE SWITCH
+================================ */
+
+.language-switch {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    background: #12256b;
+    padding: 4px;
+    border-radius: 10px;
+}
+
+.language-btn {
+    min-width: 45px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 12px;
+    border-radius: 7px;
+    color: #12256b;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    transition: all 0.2s ease;
+}
+
+    .language-btn:hover {
+        background: #dce6ff;
+        color: #12256b;
+    }
+
+    .language-btn.active {
+        background: #ffffff;
+        color: #12256b;
+        box-shadow: 0 2px 6px rgba(18, 37, 107, 0.15);
+    }
+
+
+/* ================================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 768px) {
+
+    .navbar-container {
+        min-height: 75px;
+        padding: 0 20px;
+    }
+
+    .hero-logo {
+        font-size: 34px;
+    }
+
+    .brand-title {
+        font-size: 16px;
+    }
+
+    .brand-subtitle {
+        font-size: 11px;
+    }
+
+    .navbar-brand {
+        gap: 10px;
+    }
+}
+
+
+@media (max-width: 500px) {
+
+    .brand-subtitle {
+        display: none;
+    }
+
+    .hero-logo {
+        font-size: 30px;
+    }
+
+    .brand-title {
+        font-size: 14px;
+    }
+
+    .language-btn {
+        min-width: 38px;
+        padding: 0 8px;
+    }
+}

@@ -1,0 +1,65 @@
+﻿@{
+    ViewData["Title"] = "Test ID OCR";
+}
+
+<div class="container mt-5">
+
+    <h2>Test ID Card OCR</h2>
+
+    <form asp-controller="Ocr"
+          asp-action="Scan"
+          method="post"
+          enctype="multipart/form-data">
+
+        <div class="mb-3">
+
+            <label class="form-label">
+                Select ID Card Image
+            </label>
+
+            <input type="file"
+                   name="image"
+                   class="form-control"
+                   accept="image/*"
+                   required />
+
+        </div>
+
+        <button type="submit"
+                class="btn btn-primary">
+            Read ID
+        </button>
+
+    </form>
+
+    @if (ViewBag.OcrText != null)
+    {
+        <hr />
+
+        <h4>OCR Result:</h4>
+
+        <pre>@ViewBag.OcrText</pre>
+
+        @if (ViewBag.NationalId != null)
+        {
+            <div class="alert alert-success mt-3">
+                <strong>National ID:</strong>
+                @ViewBag.NationalId
+            </div>
+        }
+        else
+        {
+            <div class="alert alert-warning mt-3">
+                National ID was not detected.
+            </div>
+        }
+    }
+
+    @if (ViewBag.Error != null)
+    {
+        <div class="alert alert-danger">
+            @ViewBag.Error
+        </div>
+    }
+
+</div>

@@ -1,0 +1,1185 @@
+﻿
+@using Microsoft.Extensions.Localization
+@using System.Globalization
+@inject IStringLocalizer<VisitorManagementSystem.Resources.SharedResource> Localizer
+
+@model VisitorManagementSystem.ViewModels.AddVisitViewModel
+
+@{
+    ViewData["Title"] = Localizer["AddNewVisit"];
+
+    var currentCulture = CultureInfo.CurrentUICulture.Name;
+}
+
+<style>
+    :root {
+        --hero-navy: #12256b;
+        --hero-blue: #1e3a8f;
+        --hero-blue-light: #2b4fb3;
+        --hero-bg: #f4f6fb;
+        --border: #e5e9f2;
+        --text-muted: #718096;
+    }
+
+    body {
+        background: var(--hero-bg);
+    }
+
+    /* =========================
+           Page Container
+        ========================= */
+
+    .visit-page {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding-bottom: 30px;
+    }
+
+    /* =========================
+           Top Bar
+        ========================= */
+
+    .hero-topbar {
+        background: linear-gradient( 135deg, var(--hero-navy), var(--hero-blue) );
+        color: #fff;
+        padding: 12px 18px;
+        margin-bottom: 22px;
+        border-radius: 10px;
+        box-shadow: 0 4px 14px rgba(18, 37, 107, .10);
+    }
+
+    .topbar-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .system-title {
+        font-size: .95rem;
+        font-weight: 700;
+        letter-spacing: .3px;
+    }
+
+    .language-switcher {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .language-btn {
+        color: #fff;
+        text-decoration: none;
+        font-size: .75rem;
+        font-weight: 600;
+        padding: 5px 9px;
+        border-radius: 5px;
+        transition: .2s;
+    }
+
+        .language-btn:hover {
+            background: rgba(255,255,255,.15);
+            color: #fff;
+        }
+
+        .language-btn.active {
+            background: #fff;
+            color: var(--hero-navy);
+        }
+
+    .language-divider {
+        color: rgba(255,255,255,.45);
+    }
+
+    /* =========================
+           Page Header
+        ========================= */
+
+    .page-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+        margin-bottom: 22px;
+        margin:20px;
+    }
+
+    .page-title {
+        margin: 0;
+        color: var(--hero-navy);
+        font-size: 1.75rem;
+        font-weight: 800;
+        letter-spacing: -.4px;
+    }
+
+    .page-subtitle {
+        margin: 5px 0 0;
+        color: var(--muted);
+        font-size: .88rem;
+    }
+
+    .page-description {
+        color: var(--text-muted);
+        font-size: .85rem;
+        margin: 5px 0 0;
+    }
+
+    /* =========================
+           Main Card
+        ========================= */
+
+    .visit-card {
+        background: #fff;
+        border: none;
+        border-radius: 12px;
+        box-shadow: 0 3px 14px rgba(18, 37, 107, .07);
+        overflow: hidden;
+    }
+
+    .visit-card-body {
+        padding: 25px;
+    }
+
+    /* =========================
+           Section
+        ========================= */
+
+    .form-section {
+        margin-bottom: 24px;
+    }
+
+        .form-section:last-of-type {
+            margin-bottom: 0;
+        }
+
+    .section-title {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        color: var(--hero-navy);
+        font-size: 1rem;
+        font-weight: 700;
+        padding-bottom: 9px;
+        margin-bottom: 17px;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .section-number {
+        width: 27px;
+        height: 27px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background: #eef1fb;
+        color: var(--hero-blue);
+        font-size: .75rem;
+        font-weight: 700;
+    }
+
+    /* =========================
+           Form
+        ========================= */
+
+    .form-label {
+        color: #26345f;
+        font-size: .78rem;
+        font-weight: 600;
+        margin-bottom: 6px;
+    }
+
+    .form-control,
+    .form-select {
+        min-height: 39px;
+        border: 1px solid #dfe4ee;
+        border-radius: 7px;
+        font-size: .82rem;
+        color: #334155;
+        background-color: #fff;
+    }
+
+        .form-control::placeholder {
+            color: #a0a8b8;
+        }
+
+        .form-control:focus,
+        .form-select:focus {
+            border-color: var(--hero-blue-light);
+            box-shadow: 0 0 0 3px rgba(43, 79, 179, .10);
+        }
+
+    .text-danger {
+        display: block;
+        margin-top: 4px;
+        font-size: .72rem;
+    }
+
+    /* =========================
+           Other Visit Type
+        ========================= */
+
+    #otherVisitTypeContainer {
+        transition: .2s ease;
+    }
+
+    /* =========================
+           ID Section
+        ========================= */
+
+    .id-option {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        min-height: 39px;
+        padding: 8px 12px;
+        background: #f8f9fd;
+        border: 1px solid var(--border);
+        border-radius: 7px;
+    }
+
+        .id-option .form-check {
+            margin: 0;
+        }
+
+    .form-check-input {
+        cursor: pointer;
+    }
+
+        .form-check-input:checked {
+            background-color: var(--hero-blue);
+            border-color: var(--hero-blue);
+        }
+
+    .form-check-label {
+        color: #344054;
+        font-size: .8rem;
+        font-weight: 500;
+        cursor: pointer;
+    }
+
+    /* =========================
+           Items
+        ========================= */
+
+    .items-box {
+        background: #f8f9fd;
+        border: 1px solid var(--border);
+        border-radius: 9px;
+        padding: 15px;
+    }
+
+    .items-description {
+        color: var(--text-muted);
+        font-size: .75rem;
+        margin-bottom: 12px;
+    }
+
+    /* =========================
+           Phone Error
+        ========================= */
+
+    #phoneError {
+        display: none;
+        font-size: .72rem;
+        margin-top: 5px;
+    }
+
+    /* =========================
+           Footer Buttons
+        ========================= */
+
+    .form-actions {
+        display: flex;
+        justify-content: flex-end;
+        gap: 9px;
+        margin-top: 25px;
+        padding-top: 18px;
+        border-top: 1px solid var(--border);
+    }
+
+    .btn-primary {
+        background: var(--hero-blue);
+        border-color: var(--hero-blue);
+        border-radius: 7px;
+        font-size: .8rem;
+        font-weight: 600;
+        padding: 9px 18px;
+    }
+
+        .btn-primary:hover,
+        .btn-primary:focus {
+            background: var(--hero-navy);
+            border-color: var(--hero-navy);
+        }
+
+    .btn-secondary {
+        background: #fff;
+        border: 1px solid #d6dce8;
+        color: #526078;
+        border-radius: 7px;
+        font-size: .8rem;
+        font-weight: 600;
+        padding: 9px 15px;
+    }
+
+        .btn-secondary:hover {
+            background: #f5f7fb;
+            border-color: var(--hero-blue);
+            color: var(--hero-navy);
+        }
+
+    /* =========================
+           Responsive
+        ========================= */
+
+    @@media (max-width: 768px) {
+        .visit-page
+
+    {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .hero-topbar {
+        padding: 10px 14px;
+    }
+
+    .page-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .page-title {
+        font-size: 1.35rem;
+    }
+
+    .visit-card-body {
+        padding: 17px;
+    }
+
+    .form-actions {
+        flex-direction: column-reverse;
+    }
+
+        .form-actions .btn {
+            width: 100%;
+        }
+
+    }
+
+    @@media (max-width: 480px) {
+        .system-title
+
+    {
+        font-size: .82rem;
+    }
+
+    .language-btn {
+        font-size: .7rem;
+        padding: 4px 7px;
+    }
+
+    .page-description {
+        font-size: .78rem;
+    }
+
+    .section-title {
+        font-size: .9rem;
+    }
+
+    }
+</style>
+
+
+<div class="container-fluid px-3 px-md-4">
+
+    <div class="visit-page">
+
+        
+
+
+        <!-- =========================
+             Page Header
+        ========================= -->
+
+        <div class="page-header">
+
+            <div>
+
+                <h1 class="page-title">
+                    @Localizer["AddNewVisit"]
+                </h1>
+
+                <p class="page-subtitle">
+                    @Localizer["RegisterVisitorDescription"]
+                </p>
+
+            </div>
+
+            <a asp-controller="Dashboard"
+               asp-action="Index"
+               class="btn btn-secondary">
+
+                <i class="bi bi-arrow-left me-1"></i>
+
+                @Localizer["BackToDashboard"]
+
+            </a>
+
+        </div>
+
+
+        <!-- =========================
+             Main Form
+        ========================= -->
+
+        <div class="visit-card">
+
+            <div class="visit-card-body">
+
+                <form asp-controller="Visits"
+                      asp-action="Create"
+                      method="post">
+
+                    <input type="hidden" asp-for="VisitorId" />
+
+
+                    <!-- =========================
+                         Visitor Information
+                    ========================= -->
+
+                    <div class="form-section">
+
+                        <div class="section-title">
+
+                            <span class="section-number">
+                                1
+                            </span>
+
+                            <span>
+                                @Localizer["VisitorInformation"]
+                            </span>
+
+                        </div>
+
+
+                        <div class="row g-3">
+
+                            <!-- Full Name -->
+
+                            <div class="col-md-6">
+
+                                <label asp-for="FullName"
+                                       class="form-label">
+
+                                    @Localizer["FullName"]
+
+                                </label>
+
+                                <input asp-for="FullName"
+                                       class="form-control"
+                                       placeholder="@Localizer["EnterFullName"]" />
+
+                                <span asp-validation-for="FullName"
+                                      class="text-danger">
+                                </span>
+
+                            </div>
+
+
+                            <!-- Phone -->
+
+                            <div class="col-md-6">
+
+                                <label asp-for="Phone"
+                                       class="form-label">
+
+                                    @Localizer["Phone"]
+
+                                </label>
+
+                                <input asp-for="Phone"
+                                       id="phoneInput"
+                                       class="form-control"
+                                       placeholder="@Localizer["EnterPhone"]" />
+
+                                <span asp-validation-for="Phone"
+                                      class="text-danger">
+                                </span>
+
+                                <span id="phoneError"
+                                      class="text-danger">
+
+                                    This visitor is still inside.
+                                    Please check out first.
+
+                                </span>
+
+                            </div>
+
+
+                            <!-- Email -->
+
+                            <div class="col-md-6">
+
+                                <label asp-for="Email"
+                                       class="form-label">
+
+                                    @Localizer["Email"]
+
+                                </label>
+
+                                <input asp-for="Email"
+                                       type="email"
+                                       class="form-control"
+                                       placeholder="@Localizer["EnterEmail"]" />
+
+                            </div>
+
+
+                            <!-- Company -->
+
+                            <div class="col-md-6">
+
+                                <label asp-for="CompanyName"
+                                       class="form-label">
+
+                                    @Localizer["Company"]
+
+                                </label>
+
+                                <input asp-for="CompanyName"
+                                       class="form-control"
+                                       placeholder="@Localizer["EnterCompanyName"]" />
+
+                            </div>
+
+
+                            <!-- Employee -->
+
+                            <div class="col-md-6">
+
+                                <label asp-for="EmployeeToMeet"
+                                       class="form-label">
+
+                                    @Localizer["EmployeeToMeet"]
+
+                                </label>
+
+                                <input asp-for="EmployeeToMeet"
+                                       class="form-control"
+                                       placeholder="@Localizer["WhoWillYouMeet"]" />
+
+                            </div>
+
+
+                            <!-- Department -->
+
+                            <div class="col-md-6">
+
+                                <label asp-for="Department"
+                                       class="form-label">
+
+                                    @Localizer["Department"]
+
+                                </label>
+
+                                <input asp-for="Department"
+                                       class="form-control"
+                                       placeholder="@Localizer["WhichDepartment"]" />
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- =========================
+                         Visit Information
+                    ========================= -->
+
+                    <div class="form-section">
+
+                        <div class="section-title">
+
+                            <span class="section-number">
+                                2
+                            </span>
+
+                            <span>
+                                @Localizer["VisitInformation"]
+                            </span>
+
+                        </div>
+
+
+                        <div class="row g-3">
+
+                            <!-- Visit Type -->
+
+                            <div class="col-md-6">
+
+                                <label asp-for="VisitTypeId"
+                                       class="form-label">
+
+                                    @Localizer["VisitType"]
+
+                                </label>
+
+                                <select asp-for="VisitTypeId"
+                                        id="VisitTypeId"
+                                        class="form-select"
+                                        asp-items="@(new SelectList(
+                                                                                    ViewBag.VisitTypes,
+                                                                                    "Id",
+                                                                                    currentCulture == "ar"
+                                                                                        ? "NameAr"
+                                                                                        : "NameEn"
+                                                                                ))">
+
+                                    <option value="">
+                                        @Localizer["SelectVisitType"]
+                                    </option>
+
+                                </select>
+
+                                <span asp-validation-for="VisitTypeId"
+                                      class="text-danger">
+                                </span>
+
+                            </div>
+
+
+                            <!-- Other Visit Type -->
+
+                            <div class="col-md-6"
+                                 id="otherVisitTypeContainer"
+                                 style="display:none;">
+
+                                <label asp-for="OtherVisitType"
+                                       class="form-label">
+
+                                    @Localizer["OtherVisitType"]
+
+                                </label>
+
+                                <input asp-for="OtherVisitType"
+                                       id="OtherVisitType"
+                                       class="form-control"
+                                       placeholder="@Localizer["EnterVisitType"]" />
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- =========================
+                         Reception & Identification
+                    ========================= -->
+
+                    <div class="form-section">
+
+                        <div class="section-title">
+
+                            <span class="section-number">
+                                3
+                            </span>
+
+                            <span>
+                                @Localizer["ReceptionIdentification"]
+                            </span>
+
+                        </div>
+
+
+                        <div class="row g-3">
+
+                            <!-- Receptionist -->
+
+                            <div class="col-md-6">
+
+                                <label asp-for="ReceptionistId"
+                                       class="form-label">
+
+                                    @Localizer["Receptionist"]
+
+                                </label>
+
+                                <select asp-for="ReceptionistId"
+                                        class="form-select"
+                                        asp-items="@(new SelectList(
+                                                                                    ViewBag.Receptionists,
+                                                                                    "Id",
+                                                                                    "Name"
+                                                                                ))">
+
+                                    <option value="">
+                                        @Localizer["SelectReceptionist"]
+                                    </option>
+
+                                </select>
+
+                                <span asp-validation-for="ReceptionistId"
+                                      class="text-danger">
+                                </span>
+
+                            </div>
+
+
+                            <!-- Has ID -->
+
+                            <div class="col-md-6">
+
+                                <label class="form-label">
+                                    &nbsp;
+                                </label>
+
+                                <div class="id-option">
+
+                                    <input asp-for="HasId"
+                                           type="checkbox"
+                                           class="form-check-input"
+                                           id="hasIdCheckbox" />
+
+                                    <label class="form-check-label"
+                                           for="hasIdCheckbox">
+
+                                        @Localizer["VisitorSubmittedID"]
+
+                                    </label>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- National ID -->
+
+                            <div class="col-md-6"
+                                 id="nationalIdContainer"
+                                 style="display:none;">
+
+                                <label asp-for="NationalId"
+                                       class="form-label">
+
+                                    @Localizer["NationalId"]
+
+                                </label>
+
+                                <input asp-for="NationalId"
+                                       id="nationalIdInput"
+                                       class="form-control"
+                                       placeholder="@Localizer["EnterNationalID"]" />
+
+                                <span asp-validation-for="NationalId"
+                                      class="text-danger">
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- =========================
+                         Visitor Items
+                    ========================= -->
+
+                    <div class="form-section">
+
+                        <div class="section-title">
+
+                            <span class="section-number">
+                                4
+                            </span>
+
+                            <span>
+                                @Localizer["VisitorItems"]
+                            </span>
+
+                        </div>
+
+
+                        <div class="items-box">
+
+                            <div class="items-description">
+
+                                @Localizer["VisitorItems"]
+
+                            </div>
+
+
+                            <div class="row g-3">
+
+                                <!-- Item Name -->
+
+                                <div class="col-md-6">
+
+                                    <label class="form-label">
+                                        @Localizer["ItemName"]
+                                    </label>
+
+                                    <input name="Items[0].ItemName"
+                                           class="form-control"
+                                           placeholder="@Localizer["EnterItemName"]" />
+
+                                </div>
+
+
+                                <!-- Quantity -->
+
+                                <div class="col-md-6">
+
+                                    <label class="form-label">
+                                        @Localizer["Quantity"]
+                                    </label>
+
+                                    <input name="Items[0].Quantity"
+                                           type="number"
+                                           min="0"
+                                           value="0"
+                                           class="form-control"
+                                           placeholder="@Localizer["EnterQuantity"]" />
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- =========================
+                         Form Actions
+                    ========================= -->
+
+                    <div class="form-actions">
+
+                        <a asp-controller="Dashboard"
+                           asp-action="Index"
+                           class="btn btn-secondary">
+
+                            @Localizer["Cancel"]
+
+                        </a>
+
+                        <button type="submit"
+                                class="btn btn-primary">
+
+                            <i class="bi bi-check-lg me-1"></i>
+
+                            @Localizer["SaveVisit"]
+
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+@section Scripts {
+
+@{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+        /* =========================================
+           Other Visit Type
+        ========================================= */
+
+        const visitTypeSelect =
+            document.getElementById("VisitTypeId");
+
+        const otherContainer =
+            document.getElementById("otherVisitTypeContainer");
+
+        const otherInput =
+            document.getElementById("OtherVisitType");
+
+
+        function toggleOtherVisitType() {
+
+            if (!visitTypeSelect || !otherContainer) {
+                return;
+            }
+
+            const selectedOption =
+                visitTypeSelect.options[
+                    visitTypeSelect.selectedIndex
+                ];
+                    const selectedText =
+        selectedOption
+            ? selectedOption.text.trim()
+            : "";
+
+    const normalizedText = selectedText
+        .replace(/\s+/g, "")
+        .replace(/[أإآ]/g, "ا")
+        .replace(/ى/g, "ي");
+
+    if (
+        selectedText === "Other" ||
+        normalizedText === "اخري"
+    ) {
+
+        otherContainer.style.display = "block";
+
+    }
+    else {
+
+        otherContainer.style.display = "none";
+
+        if (otherInput) {
+            otherInput.value = "";
+        }
+
+    }
+        }
+
+
+        if (visitTypeSelect) {
+
+            visitTypeSelect.addEventListener(
+                "change",
+                toggleOtherVisitType
+            );
+
+            toggleOtherVisitType();
+
+        }
+
+
+        /* =========================================
+           National ID
+        ========================================= */
+
+        const idCheckbox =
+            document.getElementById("hasIdCheckbox");
+
+        const nationalIdContainer =
+            document.getElementById("nationalIdContainer");
+
+        const nationalIdInput =
+            document.getElementById("nationalIdInput");
+
+
+        function toggleNationalId() {
+
+            if (!idCheckbox || !nationalIdContainer) {
+                return;
+            }
+
+            if (idCheckbox.checked) {
+
+                nationalIdContainer.style.display =
+                    "block";
+
+                if (nationalIdInput) {
+                    nationalIdInput.setAttribute(
+                        "required",
+                        "required"
+                    );
+                }
+
+            }
+            else {
+
+                nationalIdContainer.style.display =
+                    "none";
+
+                if (nationalIdInput) {
+
+                    nationalIdInput.removeAttribute(
+                        "required"
+                    );
+
+                    nationalIdInput.value = "";
+
+                }
+
+            }
+        }
+
+
+        if (idCheckbox) {
+
+            idCheckbox.addEventListener(
+                "change",
+                toggleNationalId
+            );
+
+            toggleNationalId();
+
+        }
+
+
+        /* =========================================
+           Phone Check
+        ========================================= */
+
+        const phoneInput =
+            document.getElementById("phoneInput");
+
+        const phoneError =
+            document.getElementById("phoneError");
+
+        if (!phoneInput || !phoneError) {
+            return;
+        }
+
+        const form =
+            phoneInput.closest("form");
+
+        let visitorInside = false;
+
+        let phoneTimer;
+
+
+        phoneInput.addEventListener(
+            "input",
+            function () {
+
+                const phone =
+                    phoneInput.value.trim();
+
+                visitorInside = false;
+
+                phoneError.style.display =
+                    "none";
+
+                phoneInput.classList.remove(
+                    "is-invalid"
+                );
+
+
+                if (phone === "") {
+                    return;
+                }
+
+
+                /*
+                   Wait a little before calling the server.
+                   This prevents sending a request for every
+                   single character typed.
+                */
+
+                clearTimeout(phoneTimer);
+
+
+                phoneTimer = setTimeout(
+                    function () {
+
+                        fetch(
+                            "/Visits/CheckPhone?phone=" +
+                            encodeURIComponent(phone)
+                        )
+
+                        .then(response => {
+
+                            if (!response.ok) {
+                                throw new Error(
+                                    "Phone check failed."
+                                );
+                            }
+
+                            return response.json();
+
+                        })
+
+                        .then(data => {
+
+                            if (data.inside) {
+
+                                visitorInside = true;
+
+                                phoneError.style.display =
+                                    "block";
+
+                                phoneInput.classList.add(
+                                    "is-invalid"
+                                );
+
+                            }
+                            else {
+
+                                visitorInside = false;
+
+                                phoneError.style.display =
+                                    "none";
+
+                                phoneInput.classList.remove(
+                                    "is-invalid"
+                                );
+
+                            }
+
+                        })
+
+                        .catch(error => {
+
+                            console.error(
+                                "Phone validation error:",
+                                error
+                            );
+
+                        });
+
+                    },
+                    400
+                );
+
+            }
+        );
+
+
+        /* =========================================
+           Prevent Submit
+        ========================================= */
+
+        if (form) {
+
+            form.addEventListener(
+                "submit",
+                function (event) {
+
+                    if (visitorInside) {
+
+                        event.preventDefault();
+
+                        phoneError.style.display =
+                            "block";
+
+                        phoneInput.classList.add(
+                            "is-invalid"
+                        );
+
+                        phoneInput.focus();
+
+                    }
+
+                }
+            );
+
+        }
+
+    });
+
+</script>
+}
+

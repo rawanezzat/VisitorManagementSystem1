@@ -1,0 +1,1669 @@
+﻿@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<VisitorManagementSystem.Resources.SharedResource> Localizer
+
+@model List<VisitorManagementSystem.Models.Visit>
+
+@{
+    ViewData["Title"] = Localizer["VisitorHistory"];
+
+    var visitor = Model.FirstOrDefault()?.Visitor;
+}
+
+<style>
+
+    /* =========================================================
+           GLOBAL
+        ========================================================= */
+
+    :root {
+        --primary: #12256b;
+        --primary-light: #1<data name="VisitorContactInformation" xml:space="preserve"> <value>معلومات التواصل مع الزائر</value> </data> <data name="VisitSummary" xml:space="preserve"> <value>ملخص الزيارة</value> </data> <data name="VisitorRecordsAndPreviousVisits" xml:space="preserve"> <value>سجلات الزوار والزيارات السابقة</value> </data> <data name="VisitorsRegisteredToday" xml:space="preserve"> <value>الزوار المسجلون اليوم</value> </data> <data name="VisitorsCurrentlyInside" xml:space="preserve"> <value>الزوار الموجودون حاليًا بالداخل</value> </data> <data name="VisitorsCheckedOutToday" xml:space="preserve"> <value>الزوار الذين غادروا اليوم</value> </data> <data name="FilterAndFindVisitorRecordsQuickly" xml:space="preserve"> <value>تصفية والبحث في سجلات الزوار بسرعة</value> </data> <data name="VisitorRecordsAndCurrentStatus" xml:space="preserve"> <value>سجلات الزوار وحالتهم الحالية</value> </data>e3a8f;
+        --primary-soft: #eef2ff;
+        --accent: #2b4fb3;
+        --success: #1f9d55;
+        --success-soft: #eaf8f0;
+        --info: #0ea5e9;
+        --info-soft: #eaf7fd;
+        --bg: #f5f7fb;
+        --card: #ffffff;
+        --text: #172033;
+        --muted: #718096;
+        --border: #e7eaf0;
+        --radius: 14px;
+        --shadow: 0 4px 20px rgba(18, 37, 107, .07);
+        --shadow-hover: 0 8px 28px rgba(18, 37, 107, .12);
+    }
+
+
+    * {
+        box-sizing: border-box;
+    }
+
+
+    body {
+        background: var(--bg);
+        color: var(--text);
+    }
+
+
+    /* =========================================================
+           PAGE CONTAINER
+        ========================================================= */
+
+    .history-container {
+        width: 100%;
+        max-width: 1600px;
+        margin: 0 auto;
+        padding: 24px;
+    }
+
+
+    /* =========================================================
+           TOP BAR
+        ========================================================= */
+
+    .hero-topbar {
+        background: linear-gradient( 135deg, var(--primary), var(--primary-light) );
+        color: #fff;
+        border-radius: 16px;
+        padding: 15px 22px;
+        margin-bottom: 28px;
+        box-shadow: 0 6px 24px rgba(18, 37, 107, .15);
+    }
+
+
+    .topbar-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+    }
+
+
+    .system-title-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+
+    .system-icon {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(255,255,255,.15);
+        border-radius: 10px;
+        font-size: 18px;
+    }
+
+
+    .system-title {
+        font-size: 1rem;
+        font-weight: 700;
+        letter-spacing: .3px;
+    }
+
+
+    .system-subtitle {
+        font-size: .72rem;
+        opacity: .7;
+        margin-top: 2px;
+    }
+
+
+    /* =========================================================
+           LANGUAGE
+        ========================================================= */
+
+    .language-switcher {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        padding: 4px;
+        background: rgba(255,255,255,.10);
+        border-radius: 9px;
+    }
+
+
+    .language-btn {
+        color: rgba(255,255,255,.75);
+        text-decoration: none;
+        font-size: .78rem;
+        font-weight: 700;
+        padding: 6px 11px;
+        border-radius: 6px;
+        transition: all .2s ease;
+    }
+
+
+        .language-btn:hover {
+            color: #fff;
+            background: rgba(255,255,255,.12);
+        }
+
+
+        .language-btn.active {
+            color: var(--primary);
+            background: #fff;
+        }
+
+
+    /* =========================================================
+           PAGE HEADER
+        ========================================================= */
+
+    .page-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        margin-bottom: 24px;
+    }
+
+
+    .page-title {
+        margin: 0;
+        color: var(--primary);
+        font-size: 1.8rem;
+        font-weight: 800;
+        letter-spacing: -.4px;
+    }
+
+
+    .page-subtitle {
+        margin: 5px 0 0;
+        color: var(--muted);
+        font-size: .85rem;
+    }
+
+
+    /* =========================================================
+           BUTTONS
+        ========================================================= */
+
+    .history-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 7px;
+        min-height: 40px;
+        padding: 8px 15px;
+        border-radius: 8px;
+        font-size: .78rem;
+        font-weight: 700;
+        text-decoration: none;
+        transition: all .2s ease;
+    }
+
+
+    .btn-back {
+        color: var(--primary);
+        background: #fff;
+        border: 1px solid var(--border);
+    }
+
+
+        .btn-back:hover {
+            color: var(--primary);
+            background: var(--primary-soft);
+            border-color: #d7def5;
+        }
+
+
+    .btn-export {
+        color: var(--primary);
+        background: #fff;
+        border: 1px solid var(--border);
+    }
+
+
+        .btn-export:hover {
+            color: var(--primary);
+            background: var(--primary-soft);
+            border-color: #d7def5;
+        }
+
+
+    /* =========================================================
+           CARDS
+        ========================================================= */
+
+    .history-card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        margin-bottom: 22px;
+        overflow: hidden;
+    }
+
+
+    .card-header-custom {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 15px;
+        padding: 18px 20px;
+        border-bottom: 1px solid var(--border);
+    }
+
+
+    .card-title {
+        margin: 0;
+        color: var(--primary);
+        font-size: 1rem;
+        font-weight: 800;
+    }
+
+
+    .card-subtitle {
+        margin: 4px 0 0;
+        color: var(--muted);
+        font-size: .75rem;
+    }
+
+
+    .card-body-custom {
+        padding: 20px;
+    }
+
+
+    /* =========================================================
+           VISITOR INFORMATION
+        ========================================================= */
+
+    .visitor-info-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 15px;
+    }
+
+
+    .visitor-info-item {
+        padding: 14px 15px;
+        background: #f8f9fc;
+        border: 1px solid #edf0f5;
+        border-radius: 10px;
+    }
+
+
+    .visitor-info-label {
+        display: block;
+        margin-bottom: 5px;
+        color: var(--muted);
+        font-size: .68rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: .3px;
+    }
+
+
+    .visitor-info-value {
+        color: var(--text);
+        font-size: .82rem;
+        font-weight: 700;
+        word-break: break-word;
+    }
+
+
+    .visitor-main-name {
+        color: var(--primary);
+        font-size: .95rem;
+    }
+
+
+    /* =========================================================
+           TABLE HEADER
+        ========================================================= */
+
+    .table-actions {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+
+    /* =========================================================
+           TABLE
+        ========================================================= */
+
+    .table-wrapper {
+        width: 100%;
+        overflow-x: auto;
+    }
+
+
+    #historyTable {
+        width: 100%;
+        min-width: 1150px;
+        margin: 0;
+        border-collapse: separate;
+        border-spacing: 0;
+    }
+
+
+        #historyTable thead th {
+            background: #f8f9fc;
+            color: #596579;
+            border-bottom: 1px solid var(--border);
+            border-top: none;
+            padding: 13px 15px;
+            font-size: .7rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: .3px;
+            white-space: nowrap;
+        }
+
+
+        #historyTable tbody td {
+            padding: 14px 15px;
+            border-bottom: 1px solid #f0f1f4;
+            color: #3c4658;
+            font-size: .78rem;
+            vertical-align: middle;
+            white-space: nowrap;
+        }
+
+
+        #historyTable tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+
+        #historyTable tbody tr {
+            transition: background .15s ease;
+        }
+
+
+            #historyTable tbody tr:hover {
+                background: #fafbff;
+            }
+
+
+    .date-value {
+        color: var(--primary);
+        font-weight: 700;
+    }
+
+
+    .empty-value {
+        color: #a0aec0;
+    }
+
+
+    /* =========================================================
+           STATUS
+        ========================================================= */
+
+    .status-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 5px 9px;
+        border-radius: 20px;
+        font-size: .67rem;
+        font-weight: 800;
+    }
+
+
+        .status-badge::before {
+            content: "";
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+        }
+
+
+    .status-inside {
+        color: #137a40;
+        background: var(--success-soft);
+    }
+
+
+        .status-inside::before {
+            background: var(--success);
+        }
+
+
+    .status-out {
+        color: #687386;
+        background: #f0f2f5;
+    }
+
+
+        .status-out::before {
+            background: #8892a5;
+        }
+
+
+    /* =========================================================
+           VIEW BUTTON
+        ========================================================= */
+
+    .view-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+        min-height: 32px;
+        padding: 6px 10px;
+        border: none;
+        border-radius: 7px;
+        background: var(--info-soft);
+        color: #087ea4;
+        font-size: .68rem;
+        font-weight: 700;
+        transition: all .2s ease;
+    }
+
+
+        .view-btn:hover {
+            background: #d9f1fb;
+            color: #087ea4;
+        }
+
+
+    /* =========================================================
+           EMPTY STATE
+        ========================================================= */
+
+    .empty-state {
+        text-align: center;
+        padding: 55px 20px;
+        color: var(--muted);
+    }
+
+
+    .empty-icon {
+        width: 55px;
+        height: 55px;
+        margin: 0 auto 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background: var(--primary-soft);
+        color: var(--primary);
+        font-size: 22px;
+    }
+
+
+    .empty-state h5 {
+        color: var(--text);
+        font-weight: 800;
+        margin-bottom: 5px;
+    }
+
+
+    .empty-state p {
+        margin: 0;
+        font-size: .8rem;
+    }
+
+
+    /* =========================================================
+           MODAL
+        ========================================================= */
+
+    /*
+           IMPORTANT:
+           The modal is intentionally smaller than modal-lg.
+           This prevents it from taking almost the whole screen.
+        */
+
+    #viewVisitModal .modal-dialog {
+        max-width: 650px;
+        margin: 1.5rem auto;
+    }
+
+
+    #viewVisitModal .modal-content {
+        border: none;
+        border-radius: 14px;
+        overflow: hidden;
+        box-shadow: 0 20px 50px rgba(0,0,0,.18);
+    }
+
+
+    #viewVisitModal .modal-header {
+        background: linear-gradient( 135deg, var(--primary), var(--primary-light) );
+        color: #fff;
+        border: none;
+        padding: 15px 18px;
+    }
+
+
+    #viewVisitModal .modal-title {
+        color: #fff;
+        font-size: .95rem;
+        font-weight: 800;
+    }
+
+
+    #viewVisitModal .btn-close {
+        filter: invert(1) brightness(2);
+        opacity: .85;
+    }
+
+
+    #viewVisitModal .modal-body {
+        padding: 18px;
+    }
+
+
+    .modal-section-title {
+        color: var(--primary);
+        font-size: .8rem;
+        font-weight: 800;
+        padding-bottom: 8px;
+        margin-bottom: 14px;
+        border-bottom: 1px solid var(--border);
+    }
+
+
+    .modal-info-item {
+        margin-bottom: 14px;
+    }
+
+
+    .modal-info-label {
+        display: block;
+        margin-bottom: 4px;
+        color: var(--muted);
+        font-size: .65rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: .3px;
+    }
+
+
+    .modal-info-value {
+        color: var(--text);
+        font-size: .8rem;
+        font-weight: 600;
+        word-break: break-word;
+    }
+
+
+    #viewVisitModal .modal-footer {
+        padding: 12px 18px;
+        border-top: 1px solid var(--border);
+        background: #fafbfc;
+    }
+
+
+    .modal-close-btn {
+        min-height: 36px;
+        padding: 7px 14px;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        background: #fff;
+        color: #4a5568;
+        font-size: .75rem;
+        font-weight: 700;
+    }
+
+
+        .modal-close-btn:hover {
+            background: #f3f4f6;
+            color: var(--text);
+        }
+
+
+    /* =========================================================
+           RESPONSIVE
+        ========================================================= */
+
+    @@media (max-width: 1200px) {
+
+        .visitor-info-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+    }
+
+
+    @@media (max-width: 768px) {
+
+        .history-container {
+            padding: 14px;
+        }
+
+
+        .hero-topbar {
+            padding: 13px 15px;
+            margin-bottom: 20px;
+        }
+
+
+        .topbar-content {
+            align-items: flex-start;
+        }
+
+
+        .system-icon {
+            width: 36px;
+            height: 36px;
+        }
+
+
+        .system-title {
+            font-size: .88rem;
+        }
+
+
+        .system-subtitle {
+            display: none;
+        }
+
+
+        .page-header {
+            flex-direction: column;
+            align-items: stretch;
+        }
+
+
+        .page-title {
+            font-size: 1.5rem;
+        }
+
+
+        .history-btn {
+            width: 100%;
+        }
+
+
+        .visitor-info-grid {
+            grid-template-columns: 1fr;
+        }
+
+
+        .card-header-custom {
+            flex-direction: column;
+            align-items: stretch;
+        }
+
+
+        .table-actions {
+            width: 100%;
+        }
+
+
+        .btn-export {
+            flex: 1;
+        }
+
+
+        .card-body-custom {
+            padding: 12px;
+        }
+
+
+        .table-wrapper {
+            margin: 0 -12px;
+            width: calc(100% + 24px);
+        }
+
+
+        #historyTable {
+            min-width: 1150px;
+        }
+
+
+        #viewVisitModal .modal-dialog {
+            max-width: none;
+            margin: 10px;
+        }
+
+
+        #viewVisitModal .modal-body {
+            padding: 15px;
+        }
+    }
+
+
+    @@media (max-width: 480px) {
+
+        .language-btn {
+            padding: 5px 8px;
+            font-size: .7rem;
+        }
+
+
+        .page-title {
+            font-size: 1.35rem;
+        }
+
+
+        .card-header-custom {
+            padding: 15px;
+        }
+
+
+        .visitor-info-item {
+            padding: 12px;
+        }
+    }
+
+</style>
+
+
+<div class="history-container">
+
+
+
+
+    <!-- =====================================================
+         PAGE HEADER
+    ====================================================== -->
+
+    <div class="page-header">
+
+        <div>
+
+            <h1 class="page-title">
+                @Localizer["VisitorHistory"]
+            </h1>
+
+            @if (visitor != null)
+            {
+                <p class="page-subtitle">
+
+                    @Localizer["AllVisits"]
+
+                    -
+                    <strong>
+                        @visitor.FullName
+                    </strong>
+
+                </p>
+            }
+
+        </div>
+
+
+        <!-- Back -->
+
+        <a asp-controller="Dashboard"
+           asp-action="Index"
+           class="history-btn btn-back">
+
+            ←
+            @Localizer["Back"]
+
+        </a>
+
+    </div>
+
+
+    <!-- =====================================================
+         VISITOR INFORMATION
+    ====================================================== -->
+    @if (visitor != null)
+    {
+
+        <div class="history-card">
+
+            <div class="card-header-custom">
+
+                <div>
+
+                    <h3 class="card-title">
+                        @Localizer["VisitorInformation"]
+                    </h3>
+
+                    <p class="card-subtitle">
+                        @Localizer["VisitorContactInformation"]             @Localizer["VisitSummary"]
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="card-body-custom">
+
+                <div class="visitor-info-grid">
+
+
+                    <!-- Name -->
+
+                    <div class="visitor-info-item">
+
+                        <span class="visitor-info-label">
+                            @Localizer["VisitorName"]
+                        </span>
+
+                        <span class="visitor-info-value visitor-main-name">
+                            @visitor.FullName
+                        </span>
+
+                    </div>
+
+
+                    <!-- Phone -->
+
+                    <div class="visitor-info-item">
+
+                        <span class="visitor-info-label">
+                            @Localizer["Phone"]
+                        </span>
+
+                        <span class="visitor-info-value">
+
+                            @(string.IsNullOrEmpty(visitor.Phone)
+                                                    ? "-"
+                                                    : visitor.Phone)
+
+                        </span>
+
+                    </div>
+
+
+                    <!-- Email -->
+
+                    <div class="visitor-info-item">
+
+                        <span class="visitor-info-label">
+                            @Localizer["Email"]
+                        </span>
+
+                        <span class="visitor-info-value">
+
+                            @(string.IsNullOrEmpty(visitor.Email)
+                                                    ? "-"
+                                                    : visitor.Email)
+
+                    </span>
+
+                    </div>
+
+
+                    <!-- Total Visits -->
+
+                    <div class="visitor-info-item">
+
+                        <span class="visitor-info-label">
+                            @Localizer["TotalVisits"]
+                        </span>
+
+                        <span class="visitor-info-value visitor-main-name">
+
+                            @Model.Count
+
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+        }
+
+
+    <!-- =====================================================
+         HISTORY TABLE
+    ====================================================== -->
+
+    <div class="history-card">
+
+        <div class="card-header-custom">
+
+            <div>
+
+                <h3 class="card-title">
+                    @Localizer["AllVisits"]
+                </h3>
+
+                <p class="card-subtitle">
+                    @Localizer["VisitorRecordsAndPreviousVisits"]
+                </p>
+
+            </div>
+
+
+            <!-- Export Buttons -->
+
+            <div class="table-actions">
+
+
+                <!-- Excel -->
+
+                <a asp-controller="Dashboard"
+                   asp-action="ExportVisitorHistoryExcel"
+                   asp-route-phone="@visitor?.Phone"
+                   class="history-btn btn-export">
+
+                    <i class="bi bi-file-earmark-excel"></i>
+
+                    @Localizer["ExportExcel"]
+
+                </a>
+
+
+                <!-- PDF -->
+
+                <a asp-controller="Dashboard"
+                   asp-action="ExportVisitorHistoryPdf"
+                   asp-route-phone="@visitor?.Phone"
+                   class="history-btn btn-export">
+
+                    <i class="bi bi-file-earmark-pdf"></i>
+
+                    @Localizer["ExportPdf"]
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="card-body-custom">
+
+
+            @if (Model != null && Model.Any())
+            {
+
+                <div class="table-wrapper">
+
+                    <table class="table"
+                           id="historyTable">
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    @Localizer["Date"]
+                                </th>
+
+                                <th>
+                                    @Localizer["Company"]
+                                </th>
+
+                                <th>
+                                    @Localizer["EmployeeToMeet"]
+                                </th>
+
+                                <th>
+                                    @Localizer["Department"]
+                                </th>
+
+                                <th>
+                                    @Localizer["VisitType"]
+                                </th>
+
+                                <th>
+                                    @Localizer["Receptionist"]
+                                </th>
+
+                                <th>
+                                    @Localizer["Status"]
+                                </th>
+
+                                <th>
+                                    @Localizer["CheckIn"]
+                                </th>
+
+                                <th>
+                                    @Localizer["CheckOut"]
+                                </th>
+
+                                <th>
+                                    @Localizer["Actions"]
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody>
+
+                            @foreach (var visit in Model)
+                            {
+
+                                <tr>
+
+
+                                    <!-- Date -->
+
+                                    <td>
+
+                                        <span class="date-value">
+
+                                            @visit.CheckInTime.ToString("dd/MM/yyyy")
+
+                                        </span>
+
+                                    </td>
+
+
+                                    <!-- Company -->
+
+                                    <td>
+
+                                        @if (string.IsNullOrEmpty(visit.CompanyName))
+                                        {
+                                            <span class="empty-value">
+                                                -
+                                            </span>
+                                        }
+                                        else
+                                        {
+                                            @visit.CompanyName
+                                        }
+
+                                    </td>
+
+
+                                    <!-- Employee -->
+
+                                    <td>
+
+                                        @if (string.IsNullOrEmpty(visit.EmployeeToMeet))
+                                        {
+                                            <span class="empty-value">
+                                                -
+                                            </span>
+                                        }
+                                        else
+                                        {
+                                            @visit.EmployeeToMeet
+                                        }
+
+                                    </td>
+
+
+                                    <!-- Department -->
+
+                                    <td>
+
+                                        @if (string.IsNullOrEmpty(visit.Department))
+                                        {
+                                            <span class="empty-value">
+                                                -
+                                            </span>
+                                        }
+                                        else
+                                        {
+                                            @visit.Department
+                                        }
+
+                                    </td>
+
+
+                                    <!-- Visit Type -->
+
+                                    <td>
+
+                                        @if (visit.VisitType?.NameEn == "Other")
+                                        {
+
+                                            @(string.IsNullOrEmpty(visit.OtherVisitType)
+                                                                            ? "Other"
+                                                                            : visit.OtherVisitType)
+
+                                                                }
+                                        else
+                                        {
+
+                                            @(System.Globalization.CultureInfo.CurrentUICulture.Name == "ar"
+                                                                            ? visit.VisitType?.NameAr ?? "-"
+                                                                            : visit.VisitType?.NameEn ?? "-")
+
+                                                                }
+
+                                    </td>
+
+
+                                    <!-- Receptionist -->
+
+                                    <td>
+
+                                        @(visit.Receptionist?.Name ?? "-")
+
+                                    </td>
+
+
+                                    <!-- Status -->
+
+                                    <td>
+
+                                        @if (visit.Status == "Inside")
+                                        {
+
+                                            <span class="status-badge status-inside">
+
+                                                @Localizer["Inside"]
+
+                                            </span>
+
+                                        }
+                                        else
+                                        {
+
+                                            <span class="status-badge status-out">
+
+                                                @Localizer["CheckedOut"]
+
+                                            </span>
+
+                                        }
+
+                                </td>
+
+
+                                <!-- Check In -->
+
+                                <td>
+
+                                    @visit.CheckInTime.ToString("hh:mm tt")
+
+                                </td>
+
+
+                                <!-- Check Out -->
+
+                                <td>
+
+                                    @(visit.CheckOutTime.HasValue
+                                                                    ? visit.CheckOutTime.Value.ToString("hh:mm tt")
+                                                                    : "-")
+
+                            </td>
+
+
+                                    <!-- Actions -->
+
+                                    <td>
+
+                                        <button type="button"
+                                                class="view-btn"
+                                                onclick="viewVisit(@visit.Id)">
+
+                                            <i class="bi bi-eye"></i>
+
+                                            @Localizer["View"]
+
+                                        </button>
+
+                                    </td>
+
+
+                                </tr>
+
+                                                }
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            }
+            else
+            {
+
+                <!-- Empty -->
+
+                <div class="empty-state">
+
+                    <div class="empty-icon">
+                        ✓
+                    </div>
+
+                    <h5>
+                        No visits found
+                    </h5>
+
+                    <p>
+                        This visitor has no previous visit records.
+                    </p>
+
+                </div>
+
+            }
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     VIEW VISIT MODAL
+========================================================= -->
+
+<div class="modal fade"
+     id="viewVisitModal"
+     tabindex="-1"
+     aria-hidden="true">
+
+    <div class="modal-dialog modal-dialog-centered">
+
+        <div class="modal-content">
+
+
+            <!-- Header -->
+
+            <div class="modal-header">
+
+                <h5 class="modal-title">
+
+                    <i class="bi bi-eye me-1"></i>
+
+                    @Localizer["VisitDetails"]
+
+                </h5>
+
+
+                <button type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal">
+                </button>
+
+            </div>
+
+
+            <!-- Body -->
+
+            <div class="modal-body">
+
+
+                <!-- Visitor Information -->
+
+                <h6 class="modal-section-title">
+
+                    @Localizer["VisitorInformation"]
+
+                </h6>
+
+
+                <div class="row">
+
+
+                    <div class="col-md-6">
+
+                        <div class="modal-info-item">
+
+                            <span class="modal-info-label">
+                                @Localizer["VisitorName"]
+                            </span>
+
+                            <span id="viewVisitorName"
+                                  class="modal-info-value">
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-md-6">
+
+                        <div class="modal-info-item">
+
+                            <span class="modal-info-label">
+                                @Localizer["Phone"]
+                            </span>
+
+                            <span id="viewPhone"
+                                  class="modal-info-value">
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-md-6">
+
+                        <div class="modal-info-item">
+
+                            <span class="modal-info-label">
+                                @Localizer["Email"]
+                            </span>
+
+                            <span id="viewEmail"
+                                  class="modal-info-value">
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-md-6">
+
+                        <div class="modal-info-item">
+
+                            <span class="modal-info-label">
+                                @Localizer["Company"]
+                            </span>
+
+                            <span id="viewCompany"
+                                  class="modal-info-value">
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-md-6">
+
+                        <div class="modal-info-item">
+
+                            <span class="modal-info-label">
+                                @Localizer["EmployeeToMeet"]
+                            </span>
+
+                            <span id="viewEmployee"
+                                  class="modal-info-value">
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-md-6">
+
+                        <div class="modal-info-item">
+
+                            <span class="modal-info-label">
+                                @Localizer["Department"]
+                            </span>
+
+                            <span id="viewDepartment"
+                                  class="modal-info-value">
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Visit Information -->
+
+                <h6 class="modal-section-title mt-2">
+
+                    @Localizer["VisitInformation"]
+
+                </h6>
+
+
+                <div class="row">
+
+
+                    <div class="col-md-6">
+
+                        <div class="modal-info-item">
+
+                            <span class="modal-info-label">
+                                @Localizer["VisitType"]
+                            </span>
+
+                            <span id="viewVisitType"
+                                  class="modal-info-value">
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-md-6">
+
+                        <div class="modal-info-item">
+
+                            <span class="modal-info-label">
+                                @Localizer["Receptionist"]
+                            </span>
+
+                            <span id="viewReceptionist"
+                                  class="modal-info-value">
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-md-6">
+
+                        <div class="modal-info-item">
+
+                            <span class="modal-info-label">
+                                @Localizer["Status"]
+                            </span>
+
+                            <span id="viewStatus"
+                                  class="modal-info-value">
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-md-6">
+
+                        <div class="modal-info-item">
+
+                            <span class="modal-info-label">
+                                @Localizer["CheckIn"]
+                            </span>
+
+                            <span id="viewCheckIn"
+                                  class="modal-info-value">
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-md-6">
+
+                        <div class="modal-info-item">
+
+                            <span class="modal-info-label">
+                                @Localizer["CheckOut"]
+                            </span>
+
+                            <span id="viewCheckOut"
+                                  class="modal-info-value">
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-md-6">
+
+                        <div class="modal-info-item">
+
+                            <span class="modal-info-label">
+                                @Localizer["Duration"]
+                            </span>
+
+                            <span id="viewDuration"
+                                  class="modal-info-value">
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Footer -->
+
+            <div class="modal-footer">
+
+                <button type="button"
+                        class="modal-close-btn"
+                        data-bs-dismiss="modal">
+
+                    @Localizer["Close"]
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
+<script>
+
+    function viewVisit(id) {
+
+        fetch('/Dashboard/GetVisit?id=' + id)
+
+            .then(response => {
+
+                if (!response.ok) {
+
+                    throw new Error(
+                        "Failed to load visit."
+                    );
+
+                }
+
+                return response.json();
+
+            })
+
+            .then(data => {
+
+
+                document.getElementById(
+                    "viewVisitorName"
+                ).innerText =
+                    data.visitorName ||
+                    data.fullName ||
+                    "-";
+
+
+                document.getElementById(
+                    "viewPhone"
+                ).innerText =
+                    data.phone || "-";
+
+
+                document.getElementById(
+                    "viewEmail"
+                ).innerText =
+                    data.email || "-";
+
+
+                document.getElementById(
+                    "viewCompany"
+                ).innerText =
+                    data.companyName || "-";
+
+
+                document.getElementById(
+                    "viewEmployee"
+                ).innerText =
+                    data.employeeToMeet || "-";
+
+
+                document.getElementById(
+                    "viewDepartment"
+                ).innerText =
+                    data.department || "-";
+
+
+                document.getElementById(
+                    "viewVisitType"
+                ).innerText =
+                    data.visitType || "-";
+
+
+                document.getElementById(
+                    "viewReceptionist"
+                ).innerText =
+                    data.receptionist || "-";
+
+
+                document.getElementById(
+                    "viewStatus"
+                ).innerText =
+                    data.status || "-";
+
+
+                document.getElementById(
+                    "viewCheckIn"
+                ).innerText =
+                    data.checkIn || "-";
+
+
+                document.getElementById(
+                    "viewCheckOut"
+                ).innerText =
+                    data.checkOut || "-";
+
+
+                document.getElementById(
+                    "viewDuration"
+                ).innerText =
+                    data.duration || "-";
+
+
+                var modalElement =
+                    document.getElementById(
+                        "viewVisitModal"
+                    );
+
+
+                var modal =
+                    bootstrap.Modal.getOrCreateInstance(
+                        modalElement
+                    );
+
+
+                modal.show();
+
+            })
+
+            .catch(error => {
+
+                console.error(error);
+
+                alert(
+                    "Unable to load visit details."
+                );
+
+            });
+
+    }
+
+</script>

@@ -1,0 +1,78 @@
+﻿@using System.Globalization
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<VisitorManagementSystem.Resources.SharedResource> Localizer
+
+
+<!DOCTYPE html>
+<html lang="@System.Globalization.CultureInfo.CurrentUICulture.Name"
+      dir="@(System.Globalization.CultureInfo.CurrentUICulture.Name == "ar" ? "rtl" : "ltr")">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - VisitorManagementSystem</title>
+    <script type="importmap"></script>
+    <link rel="stylesheet"href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/VisitorManagementSystem.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header class="main-navbar">
+        <div class="navbar-container">
+
+            <!-- Logo / System Name -->
+            <div class="navbar-brand">
+                <div class="hero-logo">Hero</div>
+
+                <div class="brand-text">
+                    <div class="brand-title">
+                        @Localizer["VisitorManagementSystem"]
+                    </div>
+
+                    <div class="brand-subtitle">
+                        @Localizer["VisitorManagementDashboard"]
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Language -->
+            <div class="language-switch">
+
+                <a asp-controller="Language"
+                   asp-action="SetLanguage"
+                   asp-route-culture="en"
+                   asp-route-returnUrl="@Context.Request.Path"
+                   class="language-btn @(CultureInfo.CurrentUICulture.Name.StartsWith("en") ? "active" : "")">
+                    EN
+                </a>
+
+                <a asp-controller="Language"
+                   asp-action="SetLanguage"
+                   asp-route-culture="ar"
+                   asp-route-returnUrl="@Context.Request.Path"
+                   class="language-btn @(CultureInfo.CurrentUICulture.Name.StartsWith("ar") ? "active" : "")">
+                    AR
+                </a>
+
+            </div>
+
+        </div>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2026 - VisitorManagementSystem - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,423 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Actions" xml:space="preserve">
+    <value>Actions</value>
+  </data>
+  <data name="AddNewVisit" xml:space="preserve">
+    <value>Add New Visit</value>
+  </data>
+  <data name="AllStatus" xml:space="preserve">
+    <value>All Status</value>
+  </data>
+  <data name="AllVisits" xml:space="preserve">
+    <value>All Visits</value>
+  </data>
+  <data name="Arabic" xml:space="preserve">
+    <value>Arabic</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="CheckedOut" xml:space="preserve">
+    <value>Checked Out</value>
+  </data>
+  <data name="CheckIn" xml:space="preserve">
+    <value>Check In</value>
+  </data>
+  <data name="CheckOut" xml:space="preserve">
+    <value>Check Out</value>
+  </data>
+  <data name="CheckOutVisitor" xml:space="preserve">
+    <value>Check Out Visitor</value>
+  </data>
+  <data name="Company" xml:space="preserve">
+    <value>Company</value>
+  </data>
+  <data name="ConfirmCheckOut" xml:space="preserve">
+    <value>Confirm Check Out</value>
+  </data>
+  <data name="ConfirmDelete" xml:space="preserve">
+    <value>Confirm Delete</value>
+  </data>
+  <data name="CustomRange" xml:space="preserve">
+    <value>Custom Range</value>
+  </data>
+  <data name="Dashboard" xml:space="preserve">
+    <value>Dashboard</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="DeleteVisit" xml:space="preserve">
+    <value>Delete Visit</value>
+  </data>
+  <data name="DidVisitorSubmitId" xml:space="preserve">
+    <value>Did Visitor Submit Id</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="EditVisit" xml:space="preserve">
+    <value>Edit Visit</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="English" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="Filter" xml:space="preserve">
+    <value>Filter</value>
+  </data>
+  <data name="From" xml:space="preserve">
+    <value>From</value>
+  </data>
+  <data name="FullName" xml:space="preserve">
+    <value>Full Name</value>
+  </data>
+  <data name="Inside" xml:space="preserve">
+    <value>Inside</value>
+  </data>
+  <data name="NationalId" xml:space="preserve">
+    <value>National Id</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="OtherVisitType" xml:space="preserve">
+    <value>Other Visit Type</value>
+  </data>
+  <data name="Period" xml:space="preserve">
+    <value>Period</value>
+  </data>
+  <data name="Phone" xml:space="preserve">
+    <value>Phone</value>
+  </data>
+  <data name="ReceptionIdentification" xml:space="preserve">
+    <value>Reception Identification</value>
+  </data>
+  <data name="Receptionist" xml:space="preserve">
+    <value>Receptionist</value>
+  </data>
+  <data name="Reset" xml:space="preserve">
+    <value>Reset</value>
+  </data>
+  <data name="SaveChanges" xml:space="preserve">
+    <value>Save Changes</value>
+  </data>
+  <data name="SearchVisitor" xml:space="preserve">
+    <value>Search Visitor...</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="ThisMonth" xml:space="preserve">
+    <value>This Month</value>
+  </data>
+  <data name="ThisWeek" xml:space="preserve">
+    <value>This Week</value>
+  </data>
+  <data name="To" xml:space="preserve">
+    <value>To</value>
+  </data>
+  <data name="Today" xml:space="preserve">
+    <value>Today</value>
+  </data>
+  <data name="View" xml:space="preserve">
+    <value>View</value>
+  </data>
+  <data name="VisitDetails" xml:space="preserve">
+    <value>Visit Details</value>
+  </data>
+  <data name="VisitInformation" xml:space="preserve">
+    <value>Visit Information</value>
+  </data>
+  <data name="VisitorInformation" xml:space="preserve">
+    <value>Visitor Information</value>
+  </data>
+  <data name="VisitorName" xml:space="preserve">
+    <value>Visitor Name</value>
+  </data>
+  <data name="VisitType" xml:space="preserve">
+    <value>Visit Type</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="AllVisitTypes" xml:space="preserve">
+    <value>All Visit Types</value>
+  </data>
+  <data name="VisitorManagement" xml:space="preserve">
+    <value>Visitor Management</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>Next</value>
+  </data>
+  <data name="Previous" xml:space="preserve">
+    <value>Previous</value>
+  </data>
+  <data name="VisitorManagementSystem" xml:space="preserve">
+    <value>Visitor Management System</value>
+  </data>
+  <data name="Quantity" xml:space="preserve">
+    <value>Quantity</value>
+  </data>
+  <data name="EnterQuantity" xml:space="preserve">
+    <value>Enter Quantity</value>
+  </data>
+  <data name="SaveVisit" xml:space="preserve">
+    <value>Save Visit</value>
+  </data>
+  <data name="VisitorItems" xml:space="preserve">
+    <value>Visitor Items</value>
+  </data>
+  <data name="ItemName" xml:space="preserve">
+    <value>Item Name</value>
+  </data>
+  <data name="EnterItemName" xml:space="preserve">
+    <value>Enter Item Name</value>
+  </data>
+  <data name="VisitorSubmittedID" xml:space="preserve">
+    <value>Visitor Submitted ID</value>
+  </data>
+  <data name="SelectReceptionist" xml:space="preserve">
+    <value>Select Receptionist</value>
+  </data>
+  <data name="EnterNationalID" xml:space="preserve">
+    <value>EnterNationalID</value>
+  </data>
+  <data name="SelectVisitType" xml:space="preserve">
+    <value>Select Visit Type</value>
+  </data>
+  <data name="EnterVisitType" xml:space="preserve">
+    <value>Enter Visit Type</value>
+  </data>
+  <data name="BackToDashboard" xml:space="preserve">
+    <value>Back To Dashboard</value>
+  </data>
+  <data name="EnterFullName" xml:space="preserve">
+    <value>Enter Full Name</value>
+  </data>
+  <data name="EnterPhone" xml:space="preserve">
+    <value>Enter Phone</value>
+  </data>
+  <data name="EnterEmail" xml:space="preserve">
+    <value>Enter Email</value>
+  </data>
+  <data name="EnterCompanyName" xml:space="preserve">
+    <value>Enter Company Name</value>
+  </data>
+  <data name="RegisterVisitorDescription" xml:space="preserve">
+    <value>Register Visitor Description</value>
+  </data>
+  <data name="EmployeeToMeet" xml:space="preserve">
+    <value>Employee To Meet</value>
+  </data>
+  <data name="Department" xml:space="preserve">
+    <value>Department</value>
+  </data>
+  <data name="WhoWillYouMeet" xml:space="preserve">
+    <value>Who Will You Meet?</value>
+  </data>
+  <data name="NewVisit" xml:space="preserve">
+    <value>New Visit</value>
+  </data>
+  <data name="WhichDepartment" xml:space="preserve">
+    <value>Which department?</value>
+  </data>
+  <data name="VisitorHistory" xml:space="preserve">
+    <value>Visitor History</value>
+  </data>
+  <data name="History" xml:space="preserve">
+    <value>History</value>
+  </data>
+  <data name="ExportExcel" xml:space="preserve">
+    <value>Export Excel</value>
+  </data>
+  <data name="ExportPdf" xml:space="preserve">
+    <value>Export Pdf</value>
+  </data>
+  <data name="TotalVisitsToday" xml:space="preserve">
+    <value>Total Visits Today</value>
+  </data>
+  <data name="CurrentlyInside" xml:space="preserve">
+    <value>Currently Inside</value>
+  </data>
+  <data name="AllPeriods" xml:space="preserve">
+    <value>All Periods</value>
+  </data>
+  <data name="Duration" xml:space="preserve">
+    <value>Duration</value>
+  </data>
+  <data name="TotalVisits" xml:space="preserve">
+    <value>Total Visits</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="VisitorRecordsAndPreviousVisits" xml:space="preserve">
+    <value>Visitor Records and Previous Visits</value>
+  </data>
+  <data name="VisitorContactInformation" xml:space="preserve">
+    <value>Visitor Contact Information</value>
+  </data>
+  <data name="VisitSummary" xml:space="preserve">
+    <value>Visit Summary</value>
+  </data>
+  <data name="Back" xml:space="preserve">
+    <value>Back</value>
+  </data>
+  <data name="VisitorsRegisteredToday" xml:space="preserve">
+    <value>Visitors Registered Today</value>
+  </data>
+  <data name="VisitorsCurrentlyInside" xml:space="preserve">
+    <value>Visitors Currently Inside</value>
+  </data>
+  <data name="VisitorsCheckedOutToday" xml:space="preserve">
+    <value>Visitors Checked Out Today</value>
+  </data>
+  <data name="ViewToday'sVisits" xml:space="preserve">
+    <value>View Today's Visits</value>
+  </data>
+  <data name="FilterAndFindVisitorRecordsQuickly" xml:space="preserve">
+    <value>Filter and Find Visitor Records Quickly</value>
+  </data>
+  <data name="VisitorRecordsAndCurrentStatus" xml:space="preserve">
+    <value>Visitor Records and Current Status</value>
+  </data>
+  <data name="Employee" xml:space="preserve">
+    <value>Employee</value>
+  </data>
+  <data name="Visitor" xml:space="preserve">
+    <value>Visitor</value>
+  </data>
+  <data name="VisitorManagementDashboard" xml:space="preserve">
+    <value>Visitor Management Dashboard</value>
+  </data>
+  <data name="Today'sVisits" xml:space="preserve">
+    <value>Today's Visits</value>
+  </data>
+  <data name="Loadingtoday'svisits..." xml:space="preserve">
+    <value>Loading today's visits...</value>
+  </data>
+</root>
