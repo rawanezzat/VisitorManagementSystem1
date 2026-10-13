@@ -1,10 +1,38 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "E:\\VisitorManagementSystem\\",
+  "WorkspaceRootPath": "C:\\Users\\hp\\Downloads\\VisitorManagementSystem1-main\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{EF0D63F7-C263-4750-BE24-3025999AE5B2}|VisitorManagementSystem\\VisitorManagementSystem.csproj|e:\\visitormanagementsystem\\visitormanagementsystem\\views\\dashboard\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{EF0D63F7-C263-4750-BE24-3025999AE5B2}|VisitorManagementSystem\\VisitorManagementSystem.csproj|c:\\users\\hp\\downloads\\visitormanagementsystem1-main\\visitormanagementsystem\\views\\dashboard\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{EF0D63F7-C263-4750-BE24-3025999AE5B2}|VisitorManagementSystem\\VisitorManagementSystem.csproj|solutionrelative:visitormanagementsystem\\views\\dashboard\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EF0D63F7-C263-4750-BE24-3025999AE5B2}|VisitorManagementSystem\\VisitorManagementSystem.csproj|c:\\users\\hp\\downloads\\visitormanagementsystem1-main\\visitormanagementsystem\\controllers\\dashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EF0D63F7-C263-4750-BE24-3025999AE5B2}|VisitorManagementSystem\\VisitorManagementSystem.csproj|solutionrelative:visitormanagementsystem\\controllers\\dashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EF0D63F7-C263-4750-BE24-3025999AE5B2}|VisitorManagementSystem\\VisitorManagementSystem.csproj|c:\\users\\hp\\downloads\\visitormanagementsystem1-main\\visitormanagementsystem\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EF0D63F7-C263-4750-BE24-3025999AE5B2}|VisitorManagementSystem\\VisitorManagementSystem.csproj|solutionrelative:visitormanagementsystem\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EF0D63F7-C263-4750-BE24-3025999AE5B2}|VisitorManagementSystem\\VisitorManagementSystem.csproj|c:\\users\\hp\\downloads\\visitormanagementsystem1-main\\visitormanagementsystem\\views\\dashboard\\visitorhistory.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EF0D63F7-C263-4750-BE24-3025999AE5B2}|VisitorManagementSystem\\VisitorManagementSystem.csproj|solutionrelative:visitormanagementsystem\\views\\dashboard\\visitorhistory.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EF0D63F7-C263-4750-BE24-3025999AE5B2}|VisitorManagementSystem\\VisitorManagementSystem.csproj|c:\\users\\hp\\downloads\\visitormanagementsystem1-main\\visitormanagementsystem\\models\\visit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EF0D63F7-C263-4750-BE24-3025999AE5B2}|VisitorManagementSystem\\VisitorManagementSystem.csproj|solutionrelative:visitormanagementsystem\\models\\visit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EF0D63F7-C263-4750-BE24-3025999AE5B2}|VisitorManagementSystem\\VisitorManagementSystem.csproj|c:\\users\\hp\\downloads\\visitormanagementsystem1-main\\visitormanagementsystem\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EF0D63F7-C263-4750-BE24-3025999AE5B2}|VisitorManagementSystem\\VisitorManagementSystem.csproj|solutionrelative:visitormanagementsystem\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EF0D63F7-C263-4750-BE24-3025999AE5B2}|VisitorManagementSystem\\VisitorManagementSystem.csproj|c:\\users\\hp\\downloads\\visitormanagementsystem1-main\\visitormanagementsystem\\controllers\\languagecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EF0D63F7-C263-4750-BE24-3025999AE5B2}|VisitorManagementSystem\\VisitorManagementSystem.csproj|solutionrelative:visitormanagementsystem\\controllers\\languagecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EF0D63F7-C263-4750-BE24-3025999AE5B2}|VisitorManagementSystem\\VisitorManagementSystem.csproj|c:\\users\\hp\\downloads\\visitormanagementsystem1-main\\visitormanagementsystem\\controllers\\visitormanagementsystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EF0D63F7-C263-4750-BE24-3025999AE5B2}|VisitorManagementSystem\\VisitorManagementSystem.csproj|solutionrelative:visitormanagementsystem\\controllers\\visitormanagementsystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,7 +42,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 9,
           "Children": [
             {
               "$type": "Bookmark",
@@ -26,13 +54,104 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Visit.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\Downloads\\VisitorManagementSystem1-main\\VisitorManagementSystem\\Models\\Visit.cs",
+              "RelativeDocumentMoniker": "VisitorManagementSystem\\Models\\Visit.cs",
+              "ToolTip": "C:\\Users\\hp\\Downloads\\VisitorManagementSystem1-main\\VisitorManagementSystem\\Models\\Visit.cs",
+              "RelativeToolTip": "VisitorManagementSystem\\Models\\Visit.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-13T10:37:46.066Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\Downloads\\VisitorManagementSystem1-main\\VisitorManagementSystem\\Program.cs",
+              "RelativeDocumentMoniker": "VisitorManagementSystem\\Program.cs",
+              "ToolTip": "C:\\Users\\hp\\Downloads\\VisitorManagementSystem1-main\\VisitorManagementSystem\\Program.cs",
+              "RelativeToolTip": "VisitorManagementSystem\\Program.cs",
+              "ViewState": "AgIAADoAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-13T10:25:20.598Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\hp\\Downloads\\VisitorManagementSystem1-main\\VisitorManagementSystem\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "VisitorManagementSystem\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\hp\\Downloads\\VisitorManagementSystem1-main\\VisitorManagementSystem\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "VisitorManagementSystem\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAABsAAAAAAAAAAAAowCcAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-10-13T10:23:44.96Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "LanguageController.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\Downloads\\VisitorManagementSystem1-main\\VisitorManagementSystem\\Controllers\\LanguageController.cs",
+              "RelativeDocumentMoniker": "VisitorManagementSystem\\Controllers\\LanguageController.cs",
+              "ToolTip": "C:\\Users\\hp\\Downloads\\VisitorManagementSystem1-main\\VisitorManagementSystem\\Controllers\\LanguageController.cs",
+              "RelativeToolTip": "VisitorManagementSystem\\Controllers\\LanguageController.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAowCgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-13T10:22:17.688Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "DashboardController.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\Downloads\\VisitorManagementSystem1-main\\VisitorManagementSystem\\Controllers\\DashboardController.cs",
+              "RelativeDocumentMoniker": "VisitorManagementSystem\\Controllers\\DashboardController.cs",
+              "ToolTip": "C:\\Users\\hp\\Downloads\\VisitorManagementSystem1-main\\VisitorManagementSystem\\Controllers\\DashboardController.cs",
+              "RelativeToolTip": "VisitorManagementSystem\\Controllers\\DashboardController.cs",
+              "ViewState": "AgIAAKUDAAAAAAAAAAAowLoDAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-13T10:13:14.126Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "VisitorManagementSystem.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\Downloads\\VisitorManagementSystem1-main\\VisitorManagementSystem\\Controllers\\VisitorManagementSystem.cs",
+              "RelativeDocumentMoniker": "VisitorManagementSystem\\Controllers\\VisitorManagementSystem.cs",
+              "ToolTip": "C:\\Users\\hp\\Downloads\\VisitorManagementSystem1-main\\VisitorManagementSystem\\Controllers\\VisitorManagementSystem.cs",
+              "RelativeToolTip": "VisitorManagementSystem\\Controllers\\VisitorManagementSystem.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-13T10:13:03.429Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "VisitorHistory.cshtml",
+              "DocumentMoniker": "C:\\Users\\hp\\Downloads\\VisitorManagementSystem1-main\\VisitorManagementSystem\\Views\\Dashboard\\VisitorHistory.cshtml",
+              "RelativeDocumentMoniker": "VisitorManagementSystem\\Views\\Dashboard\\VisitorHistory.cshtml",
+              "ToolTip": "C:\\Users\\hp\\Downloads\\VisitorManagementSystem1-main\\VisitorManagementSystem\\Views\\Dashboard\\VisitorHistory.cshtml",
+              "RelativeToolTip": "VisitorManagementSystem\\Views\\Dashboard\\VisitorHistory.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-10-13T10:10:52.886Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Index.cshtml",
-              "DocumentMoniker": "E:\\VisitorManagementSystem\\VisitorManagementSystem\\Views\\Dashboard\\Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\hp\\Downloads\\VisitorManagementSystem1-main\\VisitorManagementSystem\\Views\\Dashboard\\Index.cshtml",
               "RelativeDocumentMoniker": "VisitorManagementSystem\\Views\\Dashboard\\Index.cshtml",
-              "ToolTip": "E:\\VisitorManagementSystem\\VisitorManagementSystem\\Views\\Dashboard\\Index.cshtml",
-              "RelativeToolTip": "VisitorManagementSystem\\Views\\Dashboard\\Index.cshtml",
-              "ViewState": "AgIAAEgQAAAAAAAAAAAUwEoQAAA0AAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\hp\\Downloads\\VisitorManagementSystem1-main\\VisitorManagementSystem\\Views\\Dashboard\\Index.cshtml*",
+              "RelativeToolTip": "VisitorManagementSystem\\Views\\Dashboard\\Index.cshtml*",
+              "ViewState": "AgIAAHoKAAAAAAAAAAAowBELAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2026-09-29T09:22:07.943Z",
               "EditorCaption": ""

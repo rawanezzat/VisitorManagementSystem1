@@ -37,12 +37,14 @@
 
 
             <!-- Language -->
+         
+            <!-- Language Switch -->
             <div class="language-switch">
 
                 <a asp-controller="Language"
                    asp-action="SetLanguage"
                    asp-route-culture="en"
-                   asp-route-returnUrl="@Context.Request.Path"
+                   asp-route-returnUrl="@($"{Context.Request.Path}{Context.Request.QueryString}")"
                    class="language-btn @(CultureInfo.CurrentUICulture.Name.StartsWith("en") ? "active" : "")">
                     EN
                 </a>
@@ -50,13 +52,13 @@
                 <a asp-controller="Language"
                    asp-action="SetLanguage"
                    asp-route-culture="ar"
-                   asp-route-returnUrl="@Context.Request.Path"
+                   asp-route-returnUrl="@($"{Context.Request.Path}{Context.Request.QueryString}")"
                    class="language-btn @(CultureInfo.CurrentUICulture.Name.StartsWith("ar") ? "active" : "")">
                     AR
                 </a>
 
             </div>
-
+            
         </div>
     </header>
     <div class="container">

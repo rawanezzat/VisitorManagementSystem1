@@ -17,61 +17,61 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = VisitorManagementSystem
 build_property.RootNamespace = VisitorManagementSystem
-build_property.ProjectDir = E:\VisitorManagementSystem\VisitorManagementSystem\
+build_property.ProjectDir = C:\Users\hp\Downloads\VisitorManagementSystem1-main\VisitorManagementSystem\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 9.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = E:\VisitorManagementSystem\VisitorManagementSystem
+build_property.MSBuildProjectDirectory = C:\Users\hp\Downloads\VisitorManagementSystem1-main\VisitorManagementSystem
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 9.0
 build_property.EnableCodeStyleSeverity = 
 
-[E:/VisitorManagementSystem/VisitorManagementSystem/Views/Dashboard/Index.cshtml]
+[C:/Users/hp/Downloads/VisitorManagementSystem1-main/VisitorManagementSystem/Views/Dashboard/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/VisitorManagementSystem/VisitorManagementSystem/Views/Dashboard/VisitorHistory.cshtml]
+[C:/Users/hp/Downloads/VisitorManagementSystem1-main/VisitorManagementSystem/Views/Dashboard/VisitorHistory.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXFZpc2l0b3JIaXN0b3J5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/VisitorManagementSystem/VisitorManagementSystem/Views/Home/Index.cshtml]
+[C:/Users/hp/Downloads/VisitorManagementSystem1-main/VisitorManagementSystem/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/VisitorManagementSystem/VisitorManagementSystem/Views/Home/Privacy.cshtml]
+[C:/Users/hp/Downloads/VisitorManagementSystem1-main/VisitorManagementSystem/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/VisitorManagementSystem/VisitorManagementSystem/Views/Ocr/Index.cshtml]
+[C:/Users/hp/Downloads/VisitorManagementSystem1-main/VisitorManagementSystem/Views/Ocr/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT2NyXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/VisitorManagementSystem/VisitorManagementSystem/Views/Shared/Error.cshtml]
+[C:/Users/hp/Downloads/VisitorManagementSystem1-main/VisitorManagementSystem/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/VisitorManagementSystem/VisitorManagementSystem/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/hp/Downloads/VisitorManagementSystem1-main/VisitorManagementSystem/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/VisitorManagementSystem/VisitorManagementSystem/Views/Visits/Create.cshtml]
+[C:/Users/hp/Downloads/VisitorManagementSystem1-main/VisitorManagementSystem/Views/Visits/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmlzaXRzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/VisitorManagementSystem/VisitorManagementSystem/Views/Visits/Scan.cshtml]
+[C:/Users/hp/Downloads/VisitorManagementSystem1-main/VisitorManagementSystem/Views/Visits/Scan.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmlzaXRzXFNjYW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/VisitorManagementSystem/VisitorManagementSystem/Views/_ViewImports.cshtml]
+[C:/Users/hp/Downloads/VisitorManagementSystem1-main/VisitorManagementSystem/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/VisitorManagementSystem/VisitorManagementSystem/Views/_ViewStart.cshtml]
+[C:/Users/hp/Downloads/VisitorManagementSystem1-main/VisitorManagementSystem/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/VisitorManagementSystem/VisitorManagementSystem/Views/Shared/_Layout.cshtml]
+[C:/Users/hp/Downloads/VisitorManagementSystem1-main/VisitorManagementSystem/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-4tn9n9kjq2

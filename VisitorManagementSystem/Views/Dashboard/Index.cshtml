@@ -10,6 +10,7 @@
 
 
 
+
 <style>
 
     /* =========================================================
@@ -2608,9 +2609,9 @@
                         </div>
 
 
-                        <div class="col-md-6 mb-3">
 
-                            <label class="form-label">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label" for="editNationalId">
                                 @Localizer["NationalId"]
                             </label>
 
@@ -2619,6 +2620,11 @@
                                    name="NationalId"
                                    class="form-control" />
 
+                            <span id="editNationalIdError"
+                                  class="text-danger small"
+                                  style="display: none;">
+                                @Localizer["NationalIdRequired"]
+                            </span>
                         </div>
 
 
@@ -2812,6 +2818,75 @@
      JAVASCRIPT
 ========================================================= -->
 <script>
+
+
+    /* =========================================================
+       EDIT FORM VALIDATION - National ID
+    ========================================================= */
+
+    function validateEditNationalId() {
+
+        const hasIdCheckbox = document.getElementById("editHasId");
+        const nationalIdInput = document.getElementById("editNationalId");
+        const nationalIdError = document.getElementById("editNationalIdError");
+
+        if (!hasIdCheckbox || !nationalIdInput || !nationalIdError) {
+            return true; 
+        }
+
+        const isRequired = hasIdCheckbox.checked;
+        const nationalId = (nationalIdInput.value || "").trim();
+
+        nationalIdInput.required = isRequired;
+
+        if (isRequired && nationalId === "") {
+            nationalIdInput.classList.add("is-invalid");
+            nationalIdError.style.display = "block";
+            return false;
+        }
+
+        nationalIdInput.classList.remove("is-invalid");
+        nationalIdError.style.display = "none";
+        return true;
+    }
+
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+        const editForm = document.querySelector("#editModal form");
+        const hasIdCheckbox = document.getElementById("editHasId");
+        const nationalIdInput = document.getElementById("editNationalId");
+
+        if (!editForm || !hasIdCheckbox || !nationalIdInput) {
+            return;
+        }
+
+        hasIdCheckbox.addEventListener("change", function () {
+            if (!hasIdCheckbox.checked) {
+                nationalIdInput.classList.remove("is-invalid");
+                const err = document.getElementById("editNationalIdError");
+                if (err) err.style.display = "none";
+                nationalIdInput.value = "";  
+            }
+            validateEditNationalId();
+        });
+
+        nationalIdInput.addEventListener("input", validateEditNationalId);
+        nationalIdInput.addEventListener("blur", validateEditNationalId);
+
+        editForm.addEventListener("submit", function (event) {
+            if (!validateEditNationalId()) {
+                event.preventDefault();
+                event.stopPropagation();
+                nationalIdInput.focus();
+                return false;
+            }
+        });
+
+        document.getElementById("editModal")?.addEventListener("shown.bs.modal", function () {
+            validateEditNationalId();
+        });
+    });
 
     /* =========================================================
        GLOBAL

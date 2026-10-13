@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\VisitorManagementSystem\\VisitorManagementSystem\\VisitorManagementSystem.csproj": {}
+    "C:\\Users\\hp\\Downloads\\VisitorManagementSystem1-main\\VisitorManagementSystem\\VisitorManagementSystem.csproj": {}
   },
   "projects": {
-    "E:\\VisitorManagementSystem\\VisitorManagementSystem\\VisitorManagementSystem.csproj": {
+    "C:\\Users\\hp\\Downloads\\VisitorManagementSystem1-main\\VisitorManagementSystem\\VisitorManagementSystem.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\VisitorManagementSystem\\VisitorManagementSystem\\VisitorManagementSystem.csproj",
+        "projectUniqueName": "C:\\Users\\hp\\Downloads\\VisitorManagementSystem1-main\\VisitorManagementSystem\\VisitorManagementSystem.csproj",
         "projectName": "VisitorManagementSystem",
-        "projectPath": "E:\\VisitorManagementSystem\\VisitorManagementSystem\\VisitorManagementSystem.csproj",
+        "projectPath": "C:\\Users\\hp\\Downloads\\VisitorManagementSystem1-main\\VisitorManagementSystem\\VisitorManagementSystem.csproj",
         "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
-        "outputPath": "E:\\VisitorManagementSystem\\VisitorManagementSystem\\obj\\",
+        "outputPath": "C:\\Users\\hp\\Downloads\\VisitorManagementSystem1-main\\VisitorManagementSystem\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
